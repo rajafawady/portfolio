@@ -1,6 +1,19 @@
-import { useState, useEffect } from 'react';
-import { Achievement } from '@/types';
+// src/hooks/useAchievements.ts
+import { useState } from 'react';
+import { achievements as achievementsData } from '@/data/achievements';
 
 export const useAchievements = () => {
-  // Implementation here...
+  const [achievements, setAchievements] = useState(achievementsData);
+
+  const unlockAchievement = (id: string) => {
+    // Logic to unlock achievement
+    setAchievements((prevAchievements) => {
+      const updatedAchievements = prevAchievements.map((achievement) =>
+        achievement.id === id ? { ...achievement, unlocked: true } : achievement
+      );
+      return updatedAchievements;
+    });
+  };
+
+  return { achievements, unlockAchievement };
 };
