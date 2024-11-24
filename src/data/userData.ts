@@ -1,5 +1,5 @@
 export const userData = {
-    name: "John Doe",
+    name: "Raja Fawad",
     title: "Full Stack & Mobile Developer",
     about: {
       summary: `Passionate full-stack developer with 5+ years of experience building scalable web and mobile applications.

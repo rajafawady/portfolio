@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 import { TerminalInput } from './TerminalInput';
 import { TerminalOutput } from './TerminalOutput';
-import { TerminalEntry, TerminalProps, CommandGroups } from './types';
+import { TerminalEntry, TerminalProps } from './types';
 import { terminalCommands } from '@/data/terminal';
 import { TerminalCommand } from './types';
 
@@ -87,7 +87,7 @@ export const Terminal: React.FC<TerminalProps> = ({
     }
 
     // Find command in command groups
-    const [commandObj, group] = findCommand(trimmedCommand);
+    const [commandObj] = findCommand(trimmedCommand);
 
     if (commandObj) {
       // Handle category-specific responses

@@ -9,8 +9,7 @@ interface TerminalOutputProps {
 
 export const TerminalOutput: React.FC<TerminalOutputProps> = ({
   type,
-  content,
-  timestamp
+  content
 }) => {
   const getPrefix = () => {
     switch (type) {

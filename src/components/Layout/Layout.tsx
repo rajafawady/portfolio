@@ -12,7 +12,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const { theme, toggleTheme } = useTheme();
-  const [matrixMode, setMatrixMode] = useState<boolean>(false);
+  const [matrixMode] = useState<boolean>(false);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {

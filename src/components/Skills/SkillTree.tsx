@@ -4,8 +4,7 @@ import ReactFlow, {
   Controls,
   Background,
   useNodesState,
-  useEdgesState,
-  Position,
+  useEdgesState
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { Card, CardContent } from '@/components/ui/card';

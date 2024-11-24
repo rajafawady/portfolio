@@ -28,10 +28,9 @@ interface Project {
 
 interface ProjectCardProps {
   project: Project;
-  onSelect?: (project: Project) => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -84,13 +83,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
 
             {project.testimonial && (
               <div className="bg-blue-50 p-4 rounded-lg">
-                <p className="italic text-gray-700">"{project.testimonial.text}"</p>
+                <p className="italic text-gray-700">&quot;{project.testimonial.text}&quot;</p>
                 <div className="mt-2 text-sm">
                   <span className="font-semibold">{project.testimonial.author}</span>
                   <span className="text-gray-500"> - {project.testimonial.position}</span>
                 </div>
               </div>
             )}
+
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {project.images.map((image, index) => (

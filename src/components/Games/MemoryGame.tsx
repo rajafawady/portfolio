@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const shuffleArray = (array: any[]) => {
+
+const shuffleArray = (array: string[]) => {
   const shuffledArray = [...array];
   for (let i = shuffledArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -16,8 +17,8 @@ const cardImages = [
 ];
 
 export const MemoryGame = ({ onWin }: { onWin: () => void }) => {
-  const [cards, setCards] = useState<any[]>([]);
-  const [flippedIndices, setFlippedIndices] = useState<number[]>([]);
+  const [cards, setCards] = useState<string[]>([]); // Array of strings
+  const [flippedIndices, setFlippedIndices] = useState<number[]>([]); // Array of numbers
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [moves, setMoves] = useState(0);
 
