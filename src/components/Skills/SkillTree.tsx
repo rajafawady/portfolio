@@ -1,26 +1,31 @@
-import React, { useState, useCallback } from 'react';
-import ReactFlow, {
-  MiniMap,
-  Controls,
-  Background,
-  useNodesState,
-  useEdgesState
-} from 'reactflow';
-import 'reactflow/dist/style.css';
-import { Card, CardContent } from '@/components/ui/card';
+import React, { useState } from 'react';
+import { 
+  Layout, 
+  Server, 
+  Database, 
+  Container,
+  Star,
+  Trophy,
+  Sword,
+  Shield,
+  Scroll,
+  Flame,
+  X,
+} from 'lucide-react';
+import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
+import { Progress } from '@/components/ui/progress';
 
 interface Skill {
   name: string;
-  level: number;
+  proficiency: number;
   years: number;
-  proficiency?: number;
-  dependencies?: string[];
   description?: string;
-  category?: string;
+  unlocked?: boolean;
 }
 
-interface SkillTreeProps {
+interface QuestProps {
   skills: {
     frontend: Skill[];
     backend: Skill[];
@@ -29,188 +34,241 @@ interface SkillTreeProps {
   };
 }
 
-const getCategoryColor = (category: string) => {
-  const colors = {
-    frontend: '#3B82F6', // blue
-    backend: '#10B981', // green
-    database: '#EF4444', // red
-    devops: '#8B5CF6', // purple
-  };
-  return colors[category as keyof typeof colors] || '#6B7280';
-};
+const SkillMap = ({ skills }: QuestProps) => {
+  const [selectedPath, setSelectedPath] = useState<string | null>(null);
+  const [hoveredQuest, setHoveredQuest] = useState<string | null>(null);
 
-const SkillNode = ({ data }: { data: any }) => (
-  <div
-    className={`px-4 py-2 shadow-lg rounded-lg border-2 ${
-      data.isCategory ? 'min-w-[180px]' : 'min-w-[150px]'
-    }`}
-    style={{
-      background: data.isCategory ? getCategoryColor(data.category) : 'white',
-      borderColor: getCategoryColor(data.category),
-    }}
-  >
-    <div className={`font-semibold ${data.isCategory ? 'text-white text-lg' : 'text-gray-800'}`}>
-      {data.label}
-    </div>
-    {!data.isCategory && (
-      <div className="text-sm text-gray-500">
-        Level: {data.level}/10 • {data.years}y exp
+  const paths = {
+    frontend: {
+      title: "Interface Treasures",
+      icon: Layout,
+      position: {
+        desktop: "top-[10%] left-[10%]", 
+        tablet: "top-[15%] left-[20%]",
+        mobile: "top-[5%] left-[15%]"
+      },
+      questIcon: Sword,
+      description: "Discover the riches of user interface crafting",
+      level: 1
+    },
+    backend: {
+      title: "Server Sanctuary",
+      icon: Server,
+      position: {
+        desktop: "top-[10%] right-[10%]", 
+        tablet: "top-[15%] right-[20%]",
+        mobile: "top-[5%] right-[15%]"
+      },
+      questIcon: Shield,
+      description: "Navigate the depths of server architecture",
+      level: 2
+    },
+    database: {
+      title: "Data Dragon's Lair",
+      icon: Database,
+      position: {
+        desktop: "bottom-[10%] right-[10%]",
+        tablet: "bottom-[15%] right-[20%]",
+        mobile: "bottom-[5%] right-[15%]"
+      },
+      questIcon: Scroll,
+      description: "Guard the ancient wisdom of data",
+      level: 4
+    },
+    devops: {
+      title: "Infrastructure Island",
+      icon: Container,
+      position: {
+        desktop: "bottom-[10%] left-[10%]", 
+        tablet: "bottom-[15%] left-[20%]",
+        mobile: "bottom-[5%] left-[15%]"
+      },
+      questIcon: Flame,
+      description: "Chart the seas of deployment",
+      level: 3
+    }
+  };
+  
+  
+  const QuestDetails = ({ pathKey }: { pathKey: keyof typeof paths }) => {
+    const pathSkills = skills[pathKey];
+    const path = paths[pathKey];
+    const QuestIcon = path.questIcon;
+  
+    return (
+      <div className="fixed inset-0 bg-black/70 dark:bg-black/90 z-50 flex items-center justify-center p-4 md:p-8">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          className="bg-white dark:bg-black/80 backdrop-blur-lg rounded-xl w-full max-w-4xl max-h-[90vh] overflow-hidden relative border border-purple-500/30 dark:border-purple-500/20"
+        >
+          <button
+            onClick={() => setSelectedPath(null)}
+            className="absolute p-2 top-2 right-2 text-gray-900 dark:text-white hover:text-purple-300 dark:hover:text-purple-500 flex items-center gap-2 z-10"
+          >
+            <X />
+          </button>
+  
+          <div className="p-4 md:p-8 bg-white dark:bg-black/80">
+            <div className="flex items-center gap-4 mb-4 mt-8 md:mt-0">
+              <QuestIcon className="w-6 h-6 md:w-8 md:h-8 text-purple-500 dark:text-purple-300" />
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{path.title}</h2>
+            </div>
+            <p className="text-gray-700 dark:text-gray-300 font-serif text-sm md:text-base">{path.description}</p>
+          </div>
+  
+          <div className="p-4 md:p-8 space-y-4 md:space-y-6 max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-purple-500/30 scrollbar-thumb-purple-400 dark:scrollbar-thumb-purple-500/40 scrollbar-track-transparent hover:scrollbar-thumb-purple-400">
+            {pathSkills.map((skill) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="relative"
+              >
+                <Card className="border border-purple-500/30 dark:border-purple-500/20 bg-white/10 dark:bg-black/15 backdrop-blur-lg overflow-hidden">
+                  <div className="p-4 md:p-6 space-y-3 md:space-y-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-purple-300">{skill.name}</h3>
+                        <div className="relative w-full">
+                          <div className="absolute inset-0 bg-gray-500/20 rounded-full h-2"> {/* Unfilled area */}
+                          </div>
+                          <Progress 
+                            value={skill.proficiency} 
+                            className="h-2 bg-purple-500 rounded-full" // Filled area
+                          />
+                        </div>
+                      </div>
+                      <Trophy className="w-5 h-5 md:w-6 md:h-6 ttext-gray-900 dark:text-purple-300" />
+                    </div>
+                    {skill.description && (
+                      <p className="text-sm md:text-base text-gray-700 dark:text-gray-300">{skill.description}</p>
+                    )}
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <div className="flex gap-1">
+                        {Array(5).fill(0).map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-3 h-3 md:w-4 md:h-4 ${
+                              i < skill.proficiency / 2
+                                ? 'text-purple-500 fill-purple-500 dark:text-purple-300 dark:fill-purple-300'
+                                : 'text-purple-500/20 dark:text-purple-500/20'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      <Badge className="bg-purple-500/20 dark:bg-purple-500/20 text-purple-500 dark:text-purple-300 text-xs md:text-sm">
+                        {skill.years}y exp
+                      </Badge>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    )}
-  </div>
-);
-
-const SkillMap: React.FC<SkillTreeProps> = ({ skills }) => {
-  const [selectedNode, setSelectedNode] = useState<any>(null);
-
-  // Convert skills data to nodes and edges
-  const initialNodes: any[] = [];
-  const initialEdges: any[] = [];
-  let nodeId = 1;
-  const nodePositions: { [key: string]: { x: number; y: number } } = {};
-
-  // Add category nodes
-  Object.entries(skills).forEach(([category, _], categoryIndex) => {
-    const x = categoryIndex * 400;
-    const y = 50;
-    nodePositions[category] = { x, y };
-    initialNodes.push({
-      id: category,
-      position: { x, y },
-      data: { label: category, category, isCategory: true },
-      type: 'skillNode',
-    });
-  });
-
-  // Add skill nodes and connect them
-  Object.entries(skills).forEach(([category, categorySkills]) => {
-    categorySkills.forEach((skill, skillIndex) => {
-      const id = `${skill.name}-${nodeId++}`;
-      const x = nodePositions[category].x + (skillIndex % 2 === 0 ? -100 : 100);
-      const y = nodePositions[category].y + 150 + Math.floor(skillIndex / 2) * 100;
-
-      initialNodes.push({
-        id,
-        position: { x, y },
-        data: {
-          label: skill.name,
-          ...skill,
-          category,
-        },
-        type: 'skillNode',
-      });
-
-      // Connect to category
-      initialEdges.push({
-        id: `e${category}-${id}`,
-        source: category,
-        target: id,
-        type: 'smoothstep',
-        animated: true,
-      });
-
-      // Add dependency connections
-      if (skill.dependencies) {
-        skill.dependencies.forEach(dep => {
-          const depNode = initialNodes.find(n => n.data.label === dep);
-          if (depNode) {
-            initialEdges.push({
-              id: `e${depNode.id}-${id}`,
-              source: depNode.id,
-              target: id,
-              type: 'smoothstep',
-              style: { stroke: '#94A3B8' },
-            });
-          }
-        });
-      }
-    });
-  });
-
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
-  const onNodeClick = useCallback((_: React.MouseEvent, node: any) => {
-    setSelectedNode(node.data);
-  }, []);
-
-  const nodeTypes = {
-    skillNode: SkillNode,
+    );
   };
+  
 
   return (
-    <div className="w-full h-screen">
-      {/* Legend */}
-      <div className="absolute top-4 left-4 z-10 bg-white p-4 rounded-lg shadow">
-        <h3 className="font-medium mb-2">Skill Categories</h3>
-        {Object.keys(skills).map(category => (
-          <div key={category} className="flex items-center gap-2 mb-1">
-            <div
-              className="w-3 h-3 rounded-full"
-              style={{ backgroundColor: getCategoryColor(category) }}
+    <div className="min-h-screen">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+        <div className="relative w-full max-w-5xl aspect-[4/5] md:aspect-[2/1] mx-auto">
+          {/* Responsive SVG paths */}
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            {/* Desktop/Tablet Grid */}
+            <g className="hidden md:block">
+              {/* Horizontal Lines */}
+              <path
+                d="M25,25 L75,25"
+                className="stroke-purple-500/30"
+                strokeWidth="0.5"
+                fill="none"
+              />
+              <path
+                d="M25,75 L75,75"
+                className="stroke-purple-500/30"
+                strokeWidth="0.5"
+                fill="none"
+              />
+              {/* Vertical Lines */}
+              <path
+                d="M25,25 L25,75"
+                className="stroke-purple-500/30"
+                strokeWidth="0.5"
+                fill="none"
+              />
+              <path
+                d="M75,25 L75,75"
+                className="stroke-purple-500/30"
+                strokeWidth="0.5"
+                fill="none"
+              />
+              {/* Diagonal Lines */}
+              <path
+                d="M25,25 L75,75 M75,25 L25,75"
+                className="stroke-purple-500/30"
+                strokeWidth="0.5"
+                fill="none"
+                strokeDasharray="4,4"
+              />
+            </g>
+            {/* Mobile vertical path */}
+            <path
+              className="block md:hidden stroke-purple-500/30"
+              d="M50,10 L50,90"
+              strokeWidth="0.5"
+              fill="none"
+              strokeDasharray="4,4"
             />
-            <span className="capitalize">{category}</span>
-          </div>
-        ))}
+          </svg>
+
+          {Object.entries(paths).map(([pathKey, path]) => {
+            const PathIcon = path.icon;
+            const isPathKey = pathKey as keyof typeof paths;
+
+            return (
+              <motion.div
+                key={pathKey}
+                className={`absolute ${path.position.mobile} md:${path.position.tablet} lg:${path.position.desktop} transform -translate-x-1/2 -translate-y-1/2`}
+                whileHover={{ scale: 1.1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <div className="flex flex-col items-center space-y-2">
+                  <button
+                    className="group"
+                    onClick={() => setSelectedPath(isPathKey)}
+                    onMouseEnter={() => setHoveredQuest(isPathKey)}
+                    onMouseLeave={() => setHoveredQuest(null)}
+                  >
+                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-white/10 backdrop-blur-lg flex items-center justify-center
+                      shadow-lg border border-purple-500 dark:border-purple-500/30 hover:border-purple-500 transition-all duration-300
+                      hover:shadow-purple-500/20 hover:shadow-xl">
+                      <PathIcon className="w-6 h-6 md:w-8 md:h-8 text-gray-700 dark:text-purple-300 group-hover:text-purple-400" />
+                    </div>
+                  </button>
+                  <div className="text-center">
+                    <h3 className="text-sm md:text-lg font-bold text-gray-700 dark:text-white font-serif whitespace-nowrap">
+                      {path.title}
+                    </h3>
+                    <Badge className="bg-purple-500 dark:bg-purple-500/20 text-white dark:text-purple-300 text-xs md:text-sm">
+                      Level {path.level}
+                    </Badge>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Selected Node Info */}
-      {selectedNode && !selectedNode.isCategory && (
-        <Card className="absolute bottom-4 left-4 z-10 w-80">
-          <CardContent className="p-4">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-medium text-lg">{selectedNode.label}</h3>
-              <Badge
-                variant="secondary"
-                className="capitalize"
-              >
-                {selectedNode.category}
-              </Badge>
-            </div>
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div>
-                <p className="text-sm text-gray-500">Level</p>
-                <p className="font-medium text-lg">{selectedNode.level}/10</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Experience</p>
-                <p className="font-medium text-lg">{selectedNode.years} years</p>
-              </div>
-            </div>
-            {selectedNode.proficiency !== undefined && (
-              <div className="mb-4">
-                <p className="text-sm text-gray-500 mb-1">Proficiency</p>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div
-                    className="bg-blue-500 rounded-full h-2 transition-all duration-300"
-                    style={{ width: `${selectedNode.proficiency}%` }}
-                  />
-                </div>
-              </div>
-            )}
-            <p className="text-sm text-gray-600">{selectedNode.description}</p>
-          </CardContent>
-        </Card>
-      )}
-
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onNodeClick={onNodeClick}
-        nodeTypes={nodeTypes}
-        fitView
-        minZoom={0.5}
-        maxZoom={2}
-        defaultViewport={{ x: 0, y: 0, zoom: 1 }}
-      >
-        <Controls />
-        <MiniMap />
-        <Background color="#aaa" gap={16} />
-      </ReactFlow>
+      {selectedPath && <QuestDetails pathKey={selectedPath as keyof typeof paths} />}
     </div>
   );
 };
 
-export  {SkillMap};
+export { SkillMap };

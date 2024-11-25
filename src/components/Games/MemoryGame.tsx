@@ -13,7 +13,7 @@ const shuffleArray = (array: string[]) => {
 
 const cardImages = [
   '🍎', '🍌', '🍓', '🍍', '🍒', '🍇', '🍊', '🍉', // Fruits
-  '🍏', '🍋', '🍒', '🍓', '🍉', '🍇', '🍊', '🍍', // Duplicates
+  '🍎', '🍌', '🍒', '🍓', '🍉', '🍇', '🍊', '🍍', // Duplicates
 ];
 
 export const MemoryGame = ({ onWin }: { onWin: () => void }) => {
@@ -83,12 +83,17 @@ export const MemoryGame = ({ onWin }: { onWin: () => void }) => {
         <span>Moves: {moves}</span>
         {matchedCards.length === cards.length && (
           <motion.button
-            onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-green-500 text-white rounded-lg"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+        onClick={() => {
+          setCards(shuffleArray(cardImages));
+          setFlippedIndices([]);
+          setMatchedCards([]);
+          setMoves(0);
+        }}
+        className="px-4 py-2 bg-green-500 text-white rounded-lg"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
           >
-            Play Again
+        Play Again
           </motion.button>
         )}
       </div>

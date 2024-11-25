@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
-import { ChevronDown, Mail, Phone, MapPin, Calendar, Briefcase, GraduationCap } from 'lucide-react';
+import { CodeXml, Mail, Phone, MapPin, Calendar, Briefcase, GraduationCap } from 'lucide-react';
 
 interface ProfileProps {
   user: {
@@ -71,7 +71,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4 md:p-8"
+      className="p-4 md:p-8"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -79,13 +79,11 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <motion.div 
-          className="relative flex flex-col md:flex-row items-center md:items-start gap-8 bg-white/10 backdrop-blur-lg rounded-2xl p-6 md:p-8"
-          whileHover={{ scale: 1.02 }}
-          transition={{ type: 'spring', stiffness: 300 }}
+          className="relative flex flex-col md:flex-row items-center md:items-start gap-8 bg-white/10 border-2 dark:border-0 dark:bg-gray-900/10 backdrop-blur-lg rounded-2xl p-6 md:p-8"
+
         >
-          <motion.div 
+          <div 
             className="relative w-48 h-48 md:w-64 md:h-64"
-            whileHover={{ scale: 1.1 }}
           >
             <Avatar className="w-full h-full ring-4 ring-purple-500 ring-offset-4 ring-offset-transparent">
               <AvatarImage src="/fawad.jpg" alt="Profile" className="object-cover" />
@@ -93,42 +91,42 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                 {user.name.charAt(0)}
               </AvatarFallback>
             </Avatar>
-            <div className="absolute -bottom-2 right-0 transform translate-x-1/4">
+            <div className="absolute right-[43%] transform translate-x-1/4">
               <Badge className="bg-green-500 text-white px-3 py-1">
                 {user.availability.status}
               </Badge>
             </div>
-          </motion.div>
+          </div>
 
           <div className="flex-1 text-center md:text-left">
             <motion.h1 
-              className="text-4xl md:text-5xl font-bold text-white mb-2"
+              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-300 mb-2"
               variants={itemVariants}
             >
               {user.name}
             </motion.h1>
             <motion.h2 
-              className="text-xl md:text-2xl text-purple-300 mb-4"
+              className="text-xl md:text-2xl text-purple-500 text-purple-500 dark:text-purple-300 mb-4"
               variants={itemVariants}
             >
               {user.title}
             </motion.h2>
             <motion.p 
-              className="text-gray-300 max-w-2xl mb-6"
+              className="text-gray-700 dark:text-gray-300 max-w-2xl mb-6"
               variants={itemVariants}
             >
               {user.about.summary}
             </motion.p>
             <motion.div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <Button
-                variant="secondary"
-                className="group"
+                variant="outline"
                 onClick={() => setIsContactVisible(!isContactVisible)}
+                className="group text-gray-900 dark:text-gray-300 border-purple-500 hover:bg-purple-500"
               >
-                <Mail className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                <Mail className="mr-2 h-4 w-4" />
                 Contact Info
               </Button>
-              <Button variant="outline" className="text-white border-purple-500 hover:bg-purple-500">
+              <Button variant="outline" className="text-gray-900 dark:text-gray-300 border-purple-500 hover:bg-purple-500">
                 <Calendar className="mr-2 h-4 w-4" />
                 Schedule Meeting
               </Button>
@@ -137,30 +135,32 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
         </motion.div>
 
         <AnimatePresence>
-          {isContactVisible && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="mt-4 bg-white/10 backdrop-blur-lg rounded-xl p-6"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex items-center gap-3 text-white">
-                  <Mail className="h-5 w-5 text-purple-400" />
-                  <span>{user.contact.email}</span>
-                </div>
-                <div className="flex items-center gap-3 text-white">
-                  <Phone className="h-5 w-5 text-purple-400" />
-                  <span>{user.contact.phone}</span>
-                </div>
-                <div className="flex items-center gap-3 text-white">
-                  <MapPin className="h-5 w-5 text-purple-400" />
-                  <span>{user.contact.location}</span>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+  {isContactVisible && (
+    <motion.div
+      initial={{ opacity: 0, scaleY: 0 }}
+      animate={{ opacity: 1, scaleY: 1, transition: { duration: 0.5, ease: "easeOut" } }}
+      exit={{ opacity: 0, scaleY: 0, transition: { duration: 0.3, ease: "easeIn" } }}
+      style={{ originY: 0 }}
+      className="mt-4 bg-white/10 border-2 dark:border-0 dark:bg-gray-900/10 backdrop-blur-lg rounded-xl p-6"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex items-center gap-3 text-gray-900 dark:text-gray-300">
+          <Mail className="h-5 w-5 text-purple-400" />
+          <span>{user.contact.email}</span>
+        </div>
+        <div className="flex items-center gap-3 text-gray-900 dark:text-gray-300">
+          <Phone className="h-5 w-5 text-purple-400" />
+          <span>{user.contact.phone}</span>
+        </div>
+        <div className="flex items-center gap-3 text-gray-900 dark:text-gray-300">
+          <MapPin className="h-5 w-5 text-purple-400" />
+          <span>{user.contact.location}</span>
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
         {/* Main Content Tabs */}
         <Tabs 
@@ -168,20 +168,30 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
           className="mt-8"
           onValueChange={setSelectedTab}
         >
-          <TabsList className="w-full justify-start bg-white/10 backdrop-blur-lg p-1 rounded-xl">
-            <TabsTrigger value="experience" className="text-white">
-              <Briefcase className="mr-2 h-4 w-4" />
+          <TabsList className="w-full justify-start bg-white/10 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg p-1 rounded-xl">
+            <TabsTrigger
+              value="experience"
+              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:bg-gray-800 data-[state=active]:text-purple-600 data-[state=active]:dark:text-purple-400 rounded-lg px-3 py-2 transition-colors"
+            >
+              <Briefcase className="mr-2 h-4 w-4 text-purple-400" />
               Experience
             </TabsTrigger>
-            <TabsTrigger value="education" className="text-white">
-              <GraduationCap className="mr-2 h-4 w-4" />
+            <TabsTrigger
+              value="education"
+              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:bg-gray-800 data-[state=active]:text-purple-600 data-[state=active]:dark:text-purple-400 rounded-lg px-3 py-2 transition-colors"
+            >
+              <GraduationCap className="mr-2 h-4 w-4 text-purple-400" />
               Education
             </TabsTrigger>
-            <TabsTrigger value="skills" className="text-white">
-              <ChevronDown className="mr-2 h-4 w-4" />
+            <TabsTrigger
+              value="skills"
+              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:bg-gray-800 data-[state=active]:text-purple-600 data-[state=active]:dark:text-purple-400 rounded-lg px-3 py-2 transition-colors"
+            >
+              <CodeXml className="mr-2 h-4 w-4 text-purple-400" />
               Skills
             </TabsTrigger>
           </TabsList>
+
 
           <TabsContent value="experience" className="mt-6">
             <motion.div 
@@ -195,16 +205,16 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-white"
+                  className="bg-white/10 border-gary-900 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg rounded-xl p-6 text-white"
                 >
-                  <h3 className="text-xl font-semibold text-purple-300">{exp.position}</h3>
-                  <div className="flex items-center gap-2 mt-2 text-gray-300">
+                  <h3 className="text-xl font-semibold text-purple-500 dark:text-purple-300">{exp.position}</h3>
+                  <div className="flex items-center gap-2 mt-2 text-gray-900 dark:text-gray-300">
                     <Briefcase className="h-4 w-4" />
                     <span>{exp.company}</span>
                     <span className="text-purple-400">•</span>
                     <span>{exp.period}</span>
                   </div>
-                  <p className="mt-4 text-gray-300">{exp.highlights}</p>
+                  <p className="mt-4 text-gray-900 dark:text-gray-300">{exp.highlights}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -222,10 +232,10 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white/10 backdrop-blur-lg rounded-xl p-6 text-white"
+                  className="bg-white/10 border-gary-900 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg rounded-xl p-6 text-white"
                 >
-                  <h3 className="text-xl font-semibold text-purple-300">{edu.degree}</h3>
-                  <div className="flex items-center gap-2 mt-2 text-gray-300">
+                  <h3 className="text-xl font-semibold text-purple-500 dark:text-purple-300">{edu.degree}</h3>
+                  <div className="flex items-center gap-2 mt-2 text-gray-900 dark:text-gray-300">
                     <GraduationCap className="h-4 w-4" />
                     <span>{edu.institution}</span>
                     <span className="text-purple-400">•</span>
@@ -233,7 +243,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                   </div>
                   <ul className="mt-4 space-y-2">
                     {edu.achievements.map((achievement, idx) => (
-                      <li key={idx} className="text-gray-300 flex items-center gap-2">
+                      <li key={idx} className="text-gray-900 dark:text-gray-300 flex items-center gap-2">
                         <span className="h-1.5 w-1.5 rounded-full bg-purple-400" />
                         {achievement}
                       </li>
@@ -255,22 +265,29 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                 <motion.div
                   key={category}
                   variants={itemVariants}
-                  className="bg-white/10 backdrop-blur-lg rounded-xl p-6"
+                  className="bg-white/10 border-gary-900 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg rounded-xl p-6"
                 >
-                  <h3 className="text-xl font-semibold text-purple-300 mb-4 capitalize">
+                  <h3 className="text-xl font-semibold text-purple-500 dark:text-purple-300 mb-4 capitalize">
                     {category}
                   </h3>
                   <div className="space-y-4">
                     {skills.map((skill, idx) => (
                       <div key={idx} className="space-y-2">
                         <div className="flex items-center justify-between text-white">
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 text-gray-900 dark:text-gray-300">
                             <span className="text-xl">{skill.icon}</span>
                             <span>{skill.name}</span>
                           </div>
-                          <span className="text-sm text-gray-300">{skill.years} years</span>
+                          <span className="text-sm text-gray-900 dark:text-gray-300">{skill.years} years</span>
                         </div>
-                        <Progress value={skill.proficiency} className="h-2 bg-white/20" />
+                        <div className="relative w-full">
+                          <div className="absolute inset-0 bg-gray-500/20 rounded-full h-2"> {/* Unfilled area */}
+                          </div>
+                          <Progress 
+                            value={skill.proficiency} 
+                            className="h-2 bg-purple-500 rounded-full" // Filled area
+                          />
+                        </div>
                       </div>
                     ))}
                   </div>

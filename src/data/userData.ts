@@ -61,19 +61,18 @@ export const userData = {
       ]
     },
     contact: {
-      email: "john.doe@example.com",
-      phone: "+92 317 3296829",
-      location: "San Francisco, CA",
+      email: "rajafawady@gmail.com",
+      phone: "+92 322 8872242",
+      location: "Beruni Hostel, Nust University, Sector H12, Islamabad, PK",
       social: {
-        github: "https://github.com/johndoe",
-        linkedin: "https://linkedin.com/in/johndoe",
-        twitter: "https://twitter.com/johndoe",
-        upwork: "https://upwork.com/freelancers/johndoe"
+        github: "https://github.com/rajafawady",
+        linkedin: "https://www.linkedin.com/in/raja-fawad-377357237",
+        upwork: "https://www.upwork.com/freelancers/rajaf29"
       }
     },
     availability: {
-      status: "Available for freelance",
+      status: "Available",
       preferences: ["Remote", "Contract", "Full-time"],
-      rate: "$80-100/hour"
+      rate: "$10-20$/hour"
     }
   };

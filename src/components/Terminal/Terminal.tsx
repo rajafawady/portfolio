@@ -133,7 +133,7 @@ export const Terminal: React.FC<TerminalProps> = ({
 
   return (
     <div 
-  className={`bg-gray-900 text-green-400 p-4 rounded-lg overflow-y-auto h-96 ${className}`}
+  className={` text-green-400 p-4 overflow-y-auto h-screen ${className}`}
   ref={containerRef}
 >
   <div className="space-y-2">

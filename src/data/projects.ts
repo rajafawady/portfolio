@@ -6,11 +6,11 @@ export const projects = [
       longDescription: `A comprehensive e-commerce solution built with Next.js, Laravel, and MySQL. 
                        Features include real-time inventory management, multi-vendor support, 
                        analytics dashboard, and integration with multiple payment gateways.`,
-      thumbnail: "/api/placeholder/400/250",
+      thumbnail: "/fawad.jpg",
       images: [
-        "/api/placeholder/800/600",
-        "/api/placeholder/800/600",
-        "/api/placeholder/800/600"
+        "/fawad.jpg",
+        "/fawad.jpg",
+        "/fawad.jpg"
       ],
       category: "web",
       featured: true,
@@ -39,11 +39,11 @@ export const projects = [
       longDescription: `A feature-rich social media application built with Flutter and Firebase. 
                        Supports photo/video sharing, real-time messaging, story features, 
                        and advanced content discovery algorithms.`,
-      thumbnail: "/api/placeholder/400/250",
+      thumbnail: "/fawad.jpg",
       images: [
-        "/api/placeholder/800/600",
-        "/api/placeholder/800/600",
-        "/api/placeholder/800/600"
+        "/fawad.jpg",
+        "/fawad.jpg",
+        "/fawad.jpg"
       ],
       category: "mobile",
       featured: true,
