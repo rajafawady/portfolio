@@ -30,7 +30,6 @@ export const Terminal: React.FC<TerminalProps> = ({
       const savedHistory = localStorage.getItem('commandHistory');
       if (savedHistory) {
         try {
-          console.log("Saved History: "+savedHistory);
           const parsedHistory = JSON.parse(savedHistory);
           if (Array.isArray(parsedHistory)) {
             setCommandHistory(parsedHistory);
@@ -107,7 +106,6 @@ export const Terminal: React.FC<TerminalProps> = ({
         const history = [command, ...prev];
         if (typeof window !== 'undefined') {
           localStorage.setItem('commandHistory', JSON.stringify(history));
-          console.log("Command History: " + history + " Saved");
         }
         return history;
       }

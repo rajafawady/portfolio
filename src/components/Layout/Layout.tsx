@@ -22,6 +22,7 @@ export default function Layout({ children }: LayoutProps) {
 
   useEffect(() => {
     setIsClient(true);
+    console.log("Saved Theme:"+theme);
   }, []);
   
   useEffect(() => {
@@ -35,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
     <SplashScreen isLoading={isLoading} fullText={'initializing_system...'}/>
-    <div className={`min-h-screen ${theme === 'dark' ? 'dark bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white' : 'bg-white text-black'}`}>
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white' : 'bg-white text-black'}`}>
       {/* Render MatrixRain only on the client side */}
       {isClient && matrixMode && <MatrixRain />}
       <Sidebar />

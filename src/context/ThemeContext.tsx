@@ -24,17 +24,15 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  // Get the theme from localStorage, if available, otherwise default to 'dark'
+  // Get the theme from localStorage, if available, otherwise default to 'light'
   const savedTheme = typeof window !== 'undefined' ? localStorage.getItem('theme') : null;
   const [theme, setTheme] = useState<'light' | 'dark'>(
-    savedTheme ? (savedTheme as 'light' | 'dark') : 'dark'
+    savedTheme ? (savedTheme as 'light' | 'dark') : 'light' // Default to light theme if no saved theme
   );
 
   useEffect(() => {
-    // Apply the theme to the document's root element (html) and body
-    if (typeof document !== 'undefined') {
-      document.documentElement.classList.toggle('dark', theme === 'dark');
-      // Set the theme in localStorage when it changes
+    // Save the theme in localStorage
+    if (typeof window !== 'undefined') {
       localStorage.setItem('theme', theme);
     }
   }, [theme]);
