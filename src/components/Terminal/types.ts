@@ -6,7 +6,7 @@ export interface TerminalCommand {
   export interface CommandGroups {
     basic: Record<string, TerminalCommand>;
     advanced: Record<string, TerminalCommand>;
-    easter_eggs: Record<string, TerminalCommand>;
+    fun: Record<string, TerminalCommand>;
   }
   
   export interface TerminalEntry {

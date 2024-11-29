@@ -42,11 +42,6 @@ const SkillMap = ({ skills }: QuestProps) => {
     frontend: {
       title: "Interface Treasures",
       icon: Layout,
-      position: {
-        desktop: "top-[10%] left-[10%]", 
-        tablet: "top-[15%] left-[20%]",
-        mobile: "top-[5%] left-[15%]"
-      },
       questIcon: Sword,
       description: "Discover the riches of user interface crafting",
       level: 1
@@ -54,11 +49,6 @@ const SkillMap = ({ skills }: QuestProps) => {
     backend: {
       title: "Server Sanctuary",
       icon: Server,
-      position: {
-        desktop: "top-[10%] right-[10%]", 
-        tablet: "top-[15%] right-[20%]",
-        mobile: "top-[5%] right-[15%]"
-      },
       questIcon: Shield,
       description: "Navigate the depths of server architecture",
       level: 2
@@ -66,11 +56,6 @@ const SkillMap = ({ skills }: QuestProps) => {
     database: {
       title: "Data Dragon's Lair",
       icon: Database,
-      position: {
-        desktop: "bottom-[10%] right-[10%]",
-        tablet: "bottom-[15%] right-[20%]",
-        mobile: "bottom-[5%] right-[15%]"
-      },
       questIcon: Scroll,
       description: "Guard the ancient wisdom of data",
       level: 4
@@ -78,11 +63,6 @@ const SkillMap = ({ skills }: QuestProps) => {
     devops: {
       title: "Infrastructure Island",
       icon: Container,
-      position: {
-        desktop: "bottom-[10%] left-[10%]", 
-        tablet: "bottom-[15%] left-[20%]",
-        mobile: "bottom-[5%] left-[15%]"
-      },
       questIcon: Flame,
       description: "Chart the seas of deployment",
       level: 3
@@ -174,99 +154,82 @@ const SkillMap = ({ skills }: QuestProps) => {
   
 
   return (
-    <div className="min-h-screen">
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
-        <div className="relative w-full max-w-5xl aspect-[4/5] md:aspect-[2/1] mx-auto">
-          {/* Responsive SVG paths */}
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {/* Desktop/Tablet Grid */}
-            <g className="hidden md:block">
-              {/* Horizontal Lines */}
-              <path
-                d="M25,25 L75,25"
-                className="stroke-purple-500/30"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              <path
-                d="M25,75 L75,75"
-                className="stroke-purple-500/30"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              {/* Vertical Lines */}
-              <path
-                d="M25,25 L25,75"
-                className="stroke-purple-500/30"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              <path
-                d="M75,25 L75,75"
-                className="stroke-purple-500/30"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              {/* Diagonal Lines */}
-              <path
-                d="M25,25 L75,75 M75,25 L25,75"
-                className="stroke-purple-500/30"
-                strokeWidth="0.5"
-                fill="none"
-                strokeDasharray="4,4"
-              />
-            </g>
-            {/* Mobile vertical path */}
-            <path
-              className="block md:hidden stroke-purple-500/30"
-              d="M50,10 L50,90"
-              strokeWidth="0.5"
-              fill="none"
-              strokeDasharray="4,4"
-            />
-          </svg>
-
-          {Object.entries(paths).map(([pathKey, path]) => {
-            const PathIcon = path.icon;
-            const isPathKey = pathKey as keyof typeof paths;
-
-            return (
-              <motion.div
-                key={pathKey}
-                className={`absolute ${path.position.mobile} md:${path.position.tablet} lg:${path.position.desktop} transform -translate-x-1/2 -translate-y-1/2`}
-                whileHover={{ scale: 1.1 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <div className="flex flex-col items-center space-y-2">
-                  <button
-                    className="group"
-                    onClick={() => setSelectedPath(isPathKey)}
-                    onMouseEnter={() => setHoveredQuest(isPathKey)}
-                    onMouseLeave={() => setHoveredQuest(null)}
-                  >
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-white/10 backdrop-blur-lg flex items-center justify-center
-                      shadow-lg border border-purple-500 dark:border-purple-500/30 hover:border-purple-500 transition-all duration-300
-                      hover:shadow-purple-500/20 hover:shadow-xl">
-                      <PathIcon className="w-6 h-6 md:w-8 md:h-8 text-gray-700 dark:text-purple-300 group-hover:text-purple-400" />
-                    </div>
-                  </button>
-                  <div className="text-center">
-                    <h3 className="text-sm md:text-lg font-bold text-gray-700 dark:text-white font-serif whitespace-nowrap">
-                      {path.title}
-                    </h3>
-                    <Badge className="bg-purple-500 dark:bg-purple-500/20 text-white dark:text-purple-300 text-xs md:text-sm">
-                      Level {path.level}
-                    </Badge>
+    <div className="relative z-10 flex flex-col items-center justify-center p-4 md:p-8 w-full m-auto">
+      <div className="relative w-full max-w-3xl aspect-[16/9] mx-auto mt-[40%] md:mt-0 lg:mt-0">
+        <svg 
+          className="absolute inset-0 w-full h-full" 
+          viewBox="0 0 100 100" 
+          preserveAspectRatio="none"
+        >
+          {/* Rectangle Border */}
+          <rect 
+            x="5" 
+            y="5" 
+            width="90" 
+            height="90" 
+            fill="none" 
+            className="stroke-purple-500/30" 
+            strokeWidth="0.5"
+          />
+          
+          {/* Diagonal Lines */}
+          <path
+            d="M5,5 L95,95 M95,5 L5,95"
+            className="stroke-purple-500/30"
+            strokeWidth="0.5"
+            fill="none"
+            strokeDasharray="4,4"
+          />
+        </svg>
+  
+        {Object.entries(paths).map(([pathKey, path]) => {
+          const PathIcon = path.icon;
+          const isPathKey = pathKey as keyof typeof paths;
+          
+          // Define corner positions
+          const positionMap: Record<string, string> = {
+            frontend: "top-[-30px] left-0",
+            backend: "top-[-30px] right-0",
+            database: "bottom-[-30px] right-0",
+            devops: "bottom-[-30px] left-0"
+          };
+  
+          return (
+            <motion.div
+              key={pathKey}
+              className={`absolute ${positionMap[pathKey]} transform -translate-x-1/2 -translate-y-1/2`}
+              whileHover={{ scale: 1.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <div className="flex flex-col items-center space-y-2">
+                <button
+                  className="group"
+                  onClick={() => setSelectedPath(isPathKey)}
+                  onMouseEnter={() => setHoveredQuest(isPathKey)}
+                  onMouseLeave={() => setHoveredQuest(null)}
+                >
+                  <div className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl bg-white/10 backdrop-blur-lg flex items-center justify-center
+                    shadow-lg border border-purple-500 dark:border-purple-500/30 hover:border-purple-500 transition-all duration-300
+                    hover:shadow-purple-500/20 hover:shadow-xl">
+                    <PathIcon className="w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 text-gray-700 dark:text-purple-300 group-hover:text-purple-400" />
                   </div>
+                </button>
+                <div className="text-center">
+                  <h3 className="text-xs md:text-sm lg:text-lg font-bold text-gray-700 dark:text-white font-serif whitespace-nowrap">
+                    {path.title}
+                  </h3>
+                  <Badge className="bg-purple-500 dark:bg-purple-500/20 text-white dark:text-purple-300 text-[0.6rem] md:text-xs lg:text-sm">
+                    Level {path.level}
+                  </Badge>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
+              </div>
+            </motion.div>
+          );
+        })}
+        
+        {selectedPath && <QuestDetails pathKey={selectedPath as keyof typeof paths} />}
       </div>
-
-      {selectedPath && <QuestDetails pathKey={selectedPath as keyof typeof paths} />}
     </div>
   );
 };

@@ -27,7 +27,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
 
   return (
     <TooltipProvider>
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto space-y-6">
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg  mx-auto space-y-6 mb-4">
         <div className="grid grid-cols-1 gap-6">
           {contacts.map(({ label, icon: Icon, link, color }) => (
             <Tooltip key={label}>

@@ -1,7 +1,10 @@
-import {Terminal} from '@/components/Terminal/Terminal'; // Import the terminal component
+import {Terminal} from '@/components/Terminal/Terminal';
+import { useTheme } from '@/context/ThemeContext';
 
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-      <Terminal />
+      <Terminal onThemeToggle={toggleTheme} />
   );
 }

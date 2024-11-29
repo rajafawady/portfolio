@@ -6,6 +6,9 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import { CodeXml, Mail, Phone, MapPin, Calendar, Briefcase, GraduationCap } from 'lucide-react';
+import { useRouter } from 'next/router';
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 interface ProfileProps {
   user: {
@@ -50,6 +53,7 @@ interface ProfileProps {
 const Profile: React.FC<ProfileProps> = ({ user }) => {
   const [selectedTab, setSelectedTab] = useState('about');
   const [isContactVisible, setIsContactVisible] = useState(false);
+  const router= useRouter();
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -67,7 +71,6 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 }
   };
-  console.log(selectedTab);
 
   return (
     <motion.div
@@ -79,14 +82,16 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <motion.div 
-          className="relative flex flex-col md:flex-row items-center md:items-start gap-8 bg-white/10 border-2 dark:border-0 dark:bg-gray-900/10 backdrop-blur-lg rounded-2xl p-6 md:p-8"
+          className="relative flex flex-col md:flex-row items-center md:items-start gap-8 bg-white/10 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg rounded-2xl p-6 md:p-8"
 
         >
           <div 
             className="relative w-48 h-48 md:w-64 md:h-64"
           >
             <Avatar className="w-full h-full ring-4 ring-purple-500 ring-offset-4 ring-offset-transparent">
+              <Zoom>
               <AvatarImage src="/fawad.jpg" alt="Profile" className="object-cover" />
+              </Zoom>
               <AvatarFallback className="bg-purple-500 text-4xl text-white">
                 {user.name.charAt(0)}
               </AvatarFallback>
@@ -106,7 +111,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
               {user.name}
             </motion.h1>
             <motion.h2 
-              className="text-xl md:text-2xl text-purple-500 text-purple-500 dark:text-purple-300 mb-4"
+              className="text-xl md:text-2xl text-purple-500 dark:text-green-500 mb-4"
               variants={itemVariants}
             >
               {user.title}
@@ -126,7 +131,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                 <Mail className="mr-2 h-4 w-4" />
                 Contact Info
               </Button>
-              <Button variant="outline" className="text-gray-900 dark:text-gray-300 border-purple-500 hover:bg-purple-500">
+              <Button variant="outline" className="text-gray-900 dark:text-gray-300 border-purple-500 hover:bg-purple-500" onClick={()=>router.push('/contact')}>
                 <Calendar className="mr-2 h-4 w-4" />
                 Schedule Meeting
               </Button>
@@ -168,26 +173,26 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
           className="mt-8"
           onValueChange={setSelectedTab}
         >
-          <TabsList className="w-full justify-start bg-white/10 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg p-1 rounded-xl">
+          <TabsList className="w-full justify-center lg:justify-start bg-white/10 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg p-1 rounded-xl">
             <TabsTrigger
               value="experience"
-              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:bg-gray-800 data-[state=active]:text-purple-600 data-[state=active]:dark:text-purple-400 rounded-lg px-3 py-2 transition-colors"
+              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:bg-green-600 data-[state=active]:text-purple-600 data-[state=active]:dark:text-white rounded-lg px-3 py-2 transition-colors"
             >
-              <Briefcase className="mr-2 h-4 w-4 text-purple-400" />
+              <Briefcase className="mr-2 h-4 w-4 text-purple-400 dark:text-white" />
               Experience
             </TabsTrigger>
             <TabsTrigger
               value="education"
-              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:bg-gray-800 data-[state=active]:text-purple-600 data-[state=active]:dark:text-purple-400 rounded-lg px-3 py-2 transition-colors"
+              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:bg-green-600 data-[state=active]:text-purple-600 data-[state=active]:dark:text-white rounded-lg px-3 py-2 transition-colors"
             >
-              <GraduationCap className="mr-2 h-4 w-4 text-purple-400" />
+              <GraduationCap className="mr-2 h-4 w-4 text-purple-400 dark:text-white" />
               Education
             </TabsTrigger>
             <TabsTrigger
               value="skills"
-              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:bg-gray-800 data-[state=active]:text-purple-600 data-[state=active]:dark:text-purple-400 rounded-lg px-3 py-2 transition-colors"
+              className="text-gray-900 dark:text-gray-300 data-[state=active]:bg-gray-200 data-[state=active]:dark:dark:bg-green-600 data-[state=active]:text-purple-600 data-[state=active]:dark:text-white rounded-lg px-3 py-2 transition-colors"
             >
-              <CodeXml className="mr-2 h-4 w-4 text-purple-400" />
+              <CodeXml className="mr-2 h-4 w-4 text-purple-400 dark:text-white" />
               Skills
             </TabsTrigger>
           </TabsList>
@@ -207,7 +212,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                   whileHover={{ scale: 1.02 }}
                   className="bg-white/10 border-gary-900 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg rounded-xl p-6 text-white"
                 >
-                  <h3 className="text-xl font-semibold text-purple-500 dark:text-purple-300">{exp.position}</h3>
+                  <h3 className="text-xl font-semibold text-purple-500 dark:text-green-500">{exp.position}</h3>
                   <div className="flex items-center gap-2 mt-2 text-gray-900 dark:text-gray-300">
                     <Briefcase className="h-4 w-4" />
                     <span>{exp.company}</span>
@@ -234,7 +239,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                   whileHover={{ scale: 1.02 }}
                   className="bg-white/10 border-gary-900 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg rounded-xl p-6 text-white"
                 >
-                  <h3 className="text-xl font-semibold text-purple-500 dark:text-purple-300">{edu.degree}</h3>
+                  <h3 className="text-xl font-semibold text-purple-500 dark:text-green-500">{edu.degree}</h3>
                   <div className="flex items-center gap-2 mt-2 text-gray-900 dark:text-gray-300">
                     <GraduationCap className="h-4 w-4" />
                     <span>{edu.institution}</span>
@@ -267,7 +272,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                   variants={itemVariants}
                   className="bg-white/10 border-gary-900 border-2 dark:border-0 dark:bg-white/10 backdrop-blur-lg rounded-xl p-6"
                 >
-                  <h3 className="text-xl font-semibold text-purple-500 dark:text-purple-300 mb-4 capitalize">
+                  <h3 className="text-xl font-semibold text-purple-500 dark:text-green-500 mb-4 capitalize">
                     {category}
                   </h3>
                   <div className="space-y-4">
