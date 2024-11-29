@@ -2,13 +2,13 @@ export const userData = {
   name: "Raja Fawad",
   title: "Full Stack & Mobile Developer",
   about: {
-    summary: `Passionate full-stack developer with 5+ years of experience building scalable web and mobile applications.
+    summary: `Passionate full-stack developer with 2+ years of experience building scalable web and mobile applications.
              Specialized in React, Next.js, Laravel, and Flutter development.`,
     details: [
-      "5+ years of professional development experience",
+      "2+ years of professional development experience",
       "Successfully delivered 20+ production applications",
       "Led development teams of 3-5 developers",
-      "Strong focus on clean code and best practices"
+      "Strong focus on clean, optimized code and best practices"
     ],
     interests: [
       "Open Source Development",

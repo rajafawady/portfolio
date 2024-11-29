@@ -302,7 +302,7 @@ export const Terminal: React.FC<TerminalProps> = ({
       ref={containerRef}
     >
       <div className={`font-mono text-blue-400`}>
-        <span className="whitespace-pre-wrap">$ Welcome to my portfolio! Type "help" for available commands.</span>
+        <span className="whitespace-pre-wrap">$ Welcome to my portfolio! Type &ldquo;help&rdquo; for available commands.</span>
       </div>
       <div className="space-y-2">
         {entries.map(entry => (
