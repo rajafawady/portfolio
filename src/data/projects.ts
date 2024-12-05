@@ -39,7 +39,7 @@ export const projects = [
       "/pointrush-3.jpg"
     ],
     category: "web",
-    featured: true,
+    featured: false,
     tech: ["MERN Stack", "Next.js", "Redux", "Firebase", "Map API"],
     links: {
       live: "https://pointrush.com",
@@ -190,7 +190,7 @@ export const projects = [
     }
   },
   {
-    id: 6,
+    id: 7,
     title: "CodeKnitters NSTP Website",
     shortDescription: "Company portfolio website showcasing brand and services",
     longDescription: `A responsive portfolio website developed with Next.js and TypeScript for CodeKnitters NSTP. 
@@ -219,7 +219,7 @@ export const projects = [
     }
   },
   {
-    id: 7,
+    id: 8,
     title: "Flutter Expense Tracker App",
     shortDescription: "A dynamic app for categorizing and managing expenses",
     longDescription: `A comprehensive expense tracker application built with Flutter and Dart, designed for efficient financial management. 
@@ -248,5 +248,41 @@ export const projects = [
       author: "Sarah Ali",
       position: "Finance Enthusiast"
     }
+  },
+  {
+    id: 9,
+    title: "Flutter Meals App",
+    shortDescription: "A cross-platform app to explore, filter, and save meals",
+    longDescription: `A feature-rich mobile application built with Flutter and Dart, designed to help users discover a variety of meals. 
+                     The app includes sorting by meal type, saving favorites, and filtering meals based on user preferences. 
+                     Demonstrates expertise in smart state management with Flutter Riverpod for seamless functionality.`,
+    thumbnail: "/projects/meals-app/1.jpg",
+    images: [
+      "/projects/meals-app/1.jpg",
+      "/projects/meals-app/2.jpg",
+      "/projects/meals-app/3.jpg",
+      "/projects/meals-app/4.jpg",
+      "/projects/meals-app/5.jpg",
+      "/projects/meals-app/6.jpg"
+    ],
+    category: "mobile",
+    featured: true,
+    tech: ["Flutter", "Dart", "Riverpod"],
+    links: {
+      live: "https://flutter-meals-app.com",
+      github: "https://github.com/rajafawady/flutter-meals-app"
+    },
+    highlights: [
+      "Developed cross-platform compatibility for iOS and Android",
+      "Implemented meal sorting by type for intuitive navigation",
+      "Added functionality to save favorites and filter meals",
+      "Leveraged Riverpod for efficient state management"
+    ],
+    testimonial: {
+      text: "A perfect app for food enthusiasts to explore and save their favorite meals!",
+      author: "Fatima Tariq",
+      position: "Food Blogger"
+    }
   }
+  
 ];
