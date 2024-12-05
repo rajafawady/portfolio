@@ -3,32 +3,27 @@ export const projects = [
     id: 1,
     title: "Kaamsaz Platform",
     shortDescription: "Visual literacy-focused platform with multilingual support",
-    longDescription: `A comprehensive platform built using the MERN stack and Firebase, designed to enhance visual literacy through interactive features. 
+    longDescription: `A comprehensive platform built using the Flutter and Firebase, designed to enhance visual literacy through interactive features. 
                      It supports multiple languages, dynamic content creation, and user-generated media, allowing for personalized learning experiences.`,
-    thumbnail: "/kaamsaz-thumbnail.jpg",
+    thumbnail: "/projects/kaamsaz/thumbnail.png",
     images: [
-      "/kaamsaz-1.jpg",
-      "/kaamsaz-2.jpg",
-      "/kaamsaz-3.jpg"
     ],
     category: "web",
     featured: true,
-    tech: ["MERN Stack", "Firebase", "Node.js", "Redux", "Next.js"],
+    tech: ["Flutter", "Firebase"],
     links: {
-      live: "https://kaamsaz.com",
       github: "https://github.com/rajafawady/kaamsaz",
-      demo: "https://demo.kaamsaz.com"
     },
     highlights: [
-      "Integrated multilingual support (Dutch and English)",
+      "Integrated multilingual support (Urdu and English)",
       "Built role-based access control (RBAC) with Firebase",
       "Implemented interactive media features for enhanced learning",
       "Optimized platform performance for a smooth user experience"
     ],
     testimonial: {
       text: "Kaamsaz has revolutionized how we approach visual literacy in education.",
-      author: "Sara Khan",
-      position: "Educational Specialist"
+      author: "Hira Toheed Khan",
+      position: "Client"
     }
   },
   {
@@ -59,7 +54,7 @@ export const projects = [
     ],
     testimonial: {
       text: "Pointrush offers an engaging and exciting way to explore new places.",
-      author: "David Lee",
+      author: "Arjan Busger",
       position: "Explorer and Travel Blogger"
     }
   },
@@ -69,11 +64,11 @@ export const projects = [
     shortDescription: "A system for restaurant reviews, ratings, and management",
     longDescription: `A web application built with the MERN stack that allows users to submit restaurant reviews, rate their experiences, 
                      and manage restaurant profiles. Features include search and filter options, as well as an admin dashboard for restaurant owners.`,
-    thumbnail: "/restaurant-review-thumbnail.jpg",
+    thumbnail: "/projects/restaurant-1.png",
     images: [
-      "/restaurant-review-1.jpg",
-      "/restaurant-review-2.jpg",
-      "/restaurant-review-3.jpg"
+      "/projects/restaurant-1.png",
+      "/projects/restaurant-2.png",
+      "/projects/restaurant-3.png"
     ],
     category: "web",
     featured: false,
@@ -133,11 +128,13 @@ export const projects = [
     shortDescription: "Cross-platform app to download TikTok videos and audio",
     longDescription: `A mobile application developed with React Native that allows users to download TikTok videos with or without watermarks, 
                      extract audio, and manage downloaded content. The app supports both Android and iOS platforms.`,
-    thumbnail: "/tiktok-thumbnail.jpg",
+    thumbnail: "/projects/tiktok/1.jpg",
     images: [
-      "/tiktok-1.jpg",
-      "/tiktok-2.jpg",
-      "/tiktok-3.jpg"
+      "/projects/tiktok/2.jpg",
+      "/projects/tiktok/3.jpg",
+      "/projects/tiktok/4.jpg",
+      "/projects/tiktok/5.jpg",
+      "/projects/tiktok/6.jpg"
     ],
     category: "mobile",
     featured: false,
@@ -157,6 +154,99 @@ export const projects = [
       text: "A must-have app for TikTok users who love saving content.",
       author: "Ahmed Nawaz",
       position: "App User"
+    }
+  },
+  {
+    id: 6,
+    title: "AquExpress",
+    shortDescription: "Water tanks delivery platform with scheduling and instant delivery",
+    longDescription: `A full-stack web application developed using Laravel for the purpose of water tank delivery. The app includes an admin panel and client-side functionality. 
+                     Clients can schedule orders for specific dates and times, place instant delivery requests, and manage their orders. The admin panel provides features for managing orders, 
+                     viewing monthly stats, and ensuring efficient operations.`,
+    thumbnail: "/projects/aquexpress/1.png",
+    images: [
+      "/projects/aquexpress/2.png",
+      "/projects/aquexpress/3.png",
+      "/projects/aquexpress/4.png",
+      "/projects/aquexpress/5.png",
+    ],
+    category: "web",
+    featured: true,
+    tech: ["PHP", "Laravel"],
+    links: {
+      live: "https://aquexpress.com",
+      github: "https://github.com/rajafawady/aquexpress"
+    },
+    highlights: [
+      "Developed scheduling and instant delivery features",
+      "Created an admin panel to manage orders and view stats",
+      "Built automated order placement for scheduled deliveries",
+      "Visualized monthly stats with dynamic graphs"
+    ],
+    testimonial: {
+      text: "AquExpress has streamlined our water delivery operations effectively.",
+      author: "Kashif Ali",
+      position: "Business Owner"
+    }
+  },
+  {
+    id: 6,
+    title: "CodeKnitters NSTP Website",
+    shortDescription: "Company portfolio website showcasing brand and services",
+    longDescription: `A responsive portfolio website developed with Next.js and TypeScript for CodeKnitters NSTP. 
+                     The site features sleek design, dynamic content, and interactive elements to engage visitors while highlighting the company's services and commitment to quality.`,
+    thumbnail: "/projects/codeknitters/1.png",
+    images: [
+      "/projects/codeknitters/2.png",
+    ],
+    category: "web",
+    featured: false,
+    tech: ["Next.js", "TypeScript"],
+    links: {
+      live: "https://codeknitters.com",
+      github: "https://github.com/rajafawady/codeknitters-website"
+    },
+    highlights: [
+      "Developed with a focus on sleek and functional design",
+      "Integrated dynamic content for seamless updates",
+      "Optimized for responsiveness across all devices",
+      "Implemented interactive features to enhance user engagement"
+    ],
+    testimonial: {
+      text: "Our website perfectly represents our brand and the services we offer. It has impressed both clients and partners.",
+      author: "Ahsan Ameen",
+      position: "CEO, CodeKnitters NSTP"
+    }
+  },
+  {
+    id: 7,
+    title: "Flutter Expense Tracker App",
+    shortDescription: "A dynamic app for categorizing and managing expenses",
+    longDescription: `A comprehensive expense tracker application built with Flutter and Dart, designed for efficient financial management. 
+                     The app allows users to input and categorize expenses seamlessly while providing insightful graphical and tabular representations. 
+                     Features include expense deletion functionality for greater user control.`,
+    thumbnail: "/projects/expense-tracker/1.jpg",
+    images: [
+      "/projects/expense-tracker/1.jpg",
+      "/projects/expense-tracker/2.jpg",
+    ],
+    category: "mobile",
+    featured: false,
+    tech: ["Flutter", "Dart"],
+    links: {
+      live: "https://expense-tracker-app.com",
+      github: "https://github.com/rajafawady/flutter-expense-tracker"
+    },
+    highlights: [
+      "Developed with intuitive categorization and input features",
+      "Provided graphical and tabular expense insights for users",
+      "Implemented expense deletion for efficient management",
+      "Optimized for smooth performance across devices"
+    ],
+    testimonial: {
+      text: "This app has revolutionized the way I manage my finances. Simple, efficient, and insightful!",
+      author: "Sarah Ali",
+      position: "Finance Enthusiast"
     }
   }
 ];
