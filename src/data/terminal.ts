@@ -12,6 +12,7 @@ export const terminalCommands: CommandGroups = {
     
   },
   advanced: {
+    meet: { desc: "Schedule a Meeting", category: "customization" },
     game: { desc: "Launch mini-game", category: "entertainment" },
     theme: { desc: "Toggle dark/light mode", category: "customization" },
     matrix: { desc: "Toggle matrix effect", category: "entertainment" },

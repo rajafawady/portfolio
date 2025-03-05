@@ -9,6 +9,7 @@ import { CodeXml, Mail, Phone, MapPin, Calendar, Briefcase, GraduationCap } from
 import { useRouter } from 'next/router';
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import { useCalendly } from "@/context/CalendlyContext";
 
 interface ProfileProps {
   user: {
@@ -51,6 +52,7 @@ interface ProfileProps {
 }
 
 const Profile: React.FC<ProfileProps> = ({ user }) => {
+    const {  openCalendly } = useCalendly();
   const [selectedTab, setSelectedTab] = useState('about');
   const [isContactVisible, setIsContactVisible] = useState(false);
   const router= useRouter();
@@ -131,7 +133,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                 <Mail className="mr-2 h-4 w-4" />
                 Contact Info
               </Button>
-              <Button variant="outline" className="text-gray-900 dark:text-gray-300 border-purple-500 hover:bg-purple-500" onClick={()=>router.push('/contact')}>
+              <Button variant="outline" className="text-gray-900 dark:text-gray-300 border-purple-500 hover:bg-purple-500" onClick={openCalendly}>
                 <Calendar className="mr-2 h-4 w-4" />
                 Schedule Meeting
               </Button>

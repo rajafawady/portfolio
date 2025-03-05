@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import {userData} from '@/data/userData';
 import {projects} from '@/data/projects';
 import { useGame } from '@/context/GameContext';
+import { useCalendly } from "@/context/CalendlyContext";
 
 
 export const Terminal: React.FC<TerminalProps> = ({
@@ -22,6 +23,7 @@ export const Terminal: React.FC<TerminalProps> = ({
   const [historyIndex, setHistoryIndex] = useState(-1);
   const containerRef = useRef<HTMLDivElement>(null);
   const { showGame, setShowGame } = useGame();
+  const {  openCalendly } = useCalendly();
   const router= useRouter();
 
 
@@ -77,6 +79,10 @@ export const Terminal: React.FC<TerminalProps> = ({
           return `${group.toUpperCase()}:\n${commandList}`;
         }).join('\n\n');
         addEntry(`Available commands:\n\n${helpText}`);
+        return true;
+      case 'meet':
+        openCalendly();
+        addEntry('Opening Calendly...');
         return true;
       case 'theme':
         onThemeToggle?.();
@@ -287,7 +293,6 @@ export const Terminal: React.FC<TerminalProps> = ({
   };
   
 
-  // Auto-scroll to bottom when new entries are added
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = containerRef.current.scrollHeight;

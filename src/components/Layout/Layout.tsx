@@ -8,7 +8,8 @@ import { useGame } from '@/context/GameContext';
 import {GameDialog} from '@/components/Games/GameDialog';
 import { ReactNode } from 'react';
 import { SplashScreen } from './SplashScreen'; 
-
+import { useCalendly } from "@/context/CalendlyContext";
+import CalendlyWidget from '../MeetingScheduler/CalendlyWidget';
 interface LayoutProps {
   children: ReactNode; 
 }
@@ -18,6 +19,7 @@ export default function Layout({ children }: LayoutProps) {
   const [matrixMode] = useState<boolean>(false);
   const [isClient, setIsClient] = useState(false);
   const { showGame, setShowGame } = useGame();
+  const { openCalendly } = useCalendly();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -81,11 +83,29 @@ export default function Layout({ children }: LayoutProps) {
             </TooltipTrigger>
             <TooltipContent sideOffset={4}>Play Game</TooltipContent>
           </Tooltip>
+
+          <Tooltip>
+                <TooltipTrigger asChild>
+                  {isClient && (
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="p-2 rounded-full bg-primary text-white"
+                      onClick={openCalendly}
+                    >
+                      📅
+                    </motion.button>
+                  )}
+                </TooltipTrigger>
+                <TooltipContent sideOffset={4}>Schedule Meeting</TooltipContent>
+              </Tooltip>
         </TooltipProvider>
       </div>
 
       {/* Game Dialog */}
       <GameDialog showGame={showGame} setShowGame={setShowGame} />
+
+      <CalendlyWidget />
 
       </main>
      

@@ -49,8 +49,6 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
               </TooltipContent>
             </Tooltip>
           ))}
-
-          {/* Non-clickable phone and location */}
           <div className="flex items-center gap-4 p-4 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors">
             <Phone size={24} className="text-green-400" />
             <span className="font-medium text-white">{phone}</span>
@@ -61,7 +59,6 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
             <span className="font-medium text-white">{location}</span>
           </div>
 
-          {/* CTA Button for WhatsApp */}
           <motion.a
             href={`https://wa.me/${phone.replace(/\s/g, '')}`}
             target="_blank"
