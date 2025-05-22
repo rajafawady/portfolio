@@ -1,5 +1,51 @@
 export const projects = [
   {
+    id: 0,
+    title: "CowSense",
+    shortDescription: "Real-time cattle health monitoring and management system with IoT integration",
+    longDescription: `An integrated platform for real-time health monitoring and management of cattle, leveraging IoT sensors, cloud services, and AI-driven insights. 
+                     The system is designed for both farmers and veterinarians, providing tailored mobile applications and a robust backend for data collection, analysis, and alerting. 
+                     It features continuous health monitoring using various IoT sensors including temperature, heart rate, SpO2, and GPS tracking.`,    thumbnail: "/projects/cowsense/splash.jpg",
+    images: [
+      "/projects/cowsense/splash.jpg",
+      "/projects/cowsense/auth.jpg",
+      "/projects/cowsense/home.jpg",
+      "/projects/cowsense/animal_dashboard.jpg",
+      "/projects/cowsense/user_profile.jpg",
+      "/projects/cowsense/animals_list.jpg", 
+      "/projects/cowsense/add_animal.jpg",
+      "/projects/cowsense/animal_alerts.jpg",
+      "/projects/cowsense/push_notification.jpg",
+      "/projects/cowsense/animal_graphs.jpg",
+      "/projects/cowsense/animal_map.jpg",
+      "/projects/cowsense/appointments.jpg",
+      "/projects/cowsense/appointment_details.jpg",
+      "/projects/cowsense/ai_disease_detection.jpg",
+    ],
+    category: "mobile",
+    featured: true,
+    tech: ["Flutter", "Firebase", "Node.js", "Express", "MongoDB", "Socket.IO", "IoT"],
+    links: {
+      // live: "https://cowsense-platform.com",
+      github: "https://github.com/rajafawady/cowsense",
+      // demo: "https://demo.cowsense-platform.com"
+    },
+    highlights: [
+      "Real-Time Health Dashboard - Added information about the live vital metrics display for each cow",
+      "Push Notifications System - Highlighted the alerts for abnormal health readings",
+      "Interactive Charts - Added the historical health data visualization feature",
+      "Secure Authentication - Included the Firebase and Google Sign-In implementation",
+      "Gemini AI Chat Assistant - Added the AI-powered chat support feature",
+      "AI Disease Detection - Maintained the AI-powered disease detection functionality",
+      "Real-time Chat - Implemented direct messaging between farmers and veterinarians"
+    ],
+    testimonial: {
+      text: "CowSense has transformed our cattle management with its real-time monitoring and alerts. It's a game-changer for modern farming.",
+      author: "Dr. Ahmed Khan",
+      position: "Veterinarian and Livestock Specialist"
+    }
+  },
+  {
     id: 1,
     title: "Kaamsaz Platform",
     shortDescription: "Visual literacy-focused platform with multilingual support",
@@ -39,12 +85,12 @@ export const projects = [
       "/pointrush-3.jpg"
     ],
     category: "web",
-    featured: false,
-    tech: ["MERN Stack", "Next.js", "Redux", "Firebase", "Map API"],
+    featured: true,
+    tech: ["Next.js", "Firebase", "React-Context", "Tailwind", "OpenStreetMaps API"],
     links: {
-      live: "https://pointrush.com",
+      live: "https://pointrush.vercel.app",
       github: "https://github.com/rajafawady/pointrush",
-      demo: "https://demo.pointrush.com"
+      // demo: "https://demo.pointrush.com"
     },
     highlights: [
       "Developed real-time map tracking and waypoint generation",
@@ -74,9 +120,9 @@ export const projects = [
     featured: false,
     tech: ["MERN Stack", "Node.js", "MongoDB", "React"],
     links: {
-      live: "https://restaurantreviews.com",
+      // live: "https://restaurantreviews.com",
       github: "https://github.com/rajafawady/restaurant-review-system",
-      demo: "https://demo.restaurantreviews.com"
+      // demo: "https://demo.restaurantreviews.com"
     },
     highlights: [
       "Implemented user-friendly review submission and rating system",
@@ -91,7 +137,7 @@ export const projects = [
     }
   },
   {
-    id: 4,
+    id: 10,
     title: "TEDxNUST'23 Website",
     shortDescription: "Event website for TEDxNUST 2023, showcasing speakers and agenda",
     longDescription: `A responsive event website developed using Next.js, React.js, and Tailwind CSS, providing detailed information about TEDxNUST'23, 
@@ -140,9 +186,9 @@ export const projects = [
     featured: false,
     tech: ["React Native", "Firebase", "Node.js"],
     links: {
-      android: "https://play.google.com/store/apps/details?id=com.tiktok.downloader",
-      ios: "https://apps.apple.com/app/id987654321",
-      github: "https://github.com/rajafawady/tiktok-video-downloader"
+      // android: "https://play.google.com/store/apps/details?id=com.tiktok.downloader",
+      // ios: "https://apps.apple.com/app/id987654321",
+      github: "https://github.com/rajafawady/tiktokvideodownloader"
     },
     highlights: [
       "Developed video downloading with and without watermark options",
@@ -171,10 +217,10 @@ export const projects = [
       "/projects/aquexpress/5.png",
     ],
     category: "web",
-    featured: true,
+    featured: false,
     tech: ["PHP", "Laravel"],
     links: {
-      live: "https://aquexpress.com",
+      // live: "https://aquexpress.com",
       github: "https://github.com/rajafawady/aquexpress"
     },
     highlights: [
@@ -203,7 +249,7 @@ export const projects = [
     featured: false,
     tech: ["Next.js", "TypeScript"],
     links: {
-      live: "https://codeknitters.com",
+      live: "https://codeknitters.co",
       github: "https://github.com/rajafawady/codeknitters-website"
     },
     highlights: [
@@ -234,8 +280,8 @@ export const projects = [
     featured: false,
     tech: ["Flutter", "Dart"],
     links: {
-      live: "https://expense-tracker-app.com",
-      github: "https://github.com/rajafawady/flutter-expense-tracker"
+      // live: "https://expense-tracker-app.com",
+      github: "https://github.com/rajafawady/flutter_expense_tracker"
     },
     highlights: [
       "Developed with intuitive categorization and input features",
@@ -248,8 +294,7 @@ export const projects = [
       author: "Sarah Ali",
       position: "Finance Enthusiast"
     }
-  },
-  {
+  },  {
     id: 9,
     title: "Flutter Meals App",
     shortDescription: "A cross-platform app to explore, filter, and save meals",
@@ -266,11 +311,11 @@ export const projects = [
       "/projects/meals-app/6.jpg"
     ],
     category: "mobile",
-    featured: true,
+    featured: false,
     tech: ["Flutter", "Dart", "Riverpod"],
     links: {
-      live: "https://flutter-meals-app.com",
-      github: "https://github.com/rajafawady/flutter-meals-app"
+      // live: "https://flutter-meals-app.com",
+      github: "https://github.com/rajafawady/meals_app"
     },
     highlights: [
       "Developed cross-platform compatibility for iOS and Android",
@@ -283,6 +328,44 @@ export const projects = [
       author: "Fatima Tariq",
       position: "Food Blogger"
     }
-  }
+  },
+  {
+    id: 4,
+    title: "Multilingual Financial Literacy App",
+    shortDescription: "Multilingual Web app for providing financial education in English and Urdu",
+    longDescription: `A multilingual web application built with Next.js and next-intl aimed at bridging the financial literacy gap in Pakistan.
+                     The app delivers accessible and culturally relevant educational content in both English and Urdu languages,
+                     designed for users with varying literacy levels to help them understand key financial concepts through localized tutorials.`,
+    thumbnail: "/projects/pak-financials/home.png",
+    images: [
+      "/projects/pak-financials/home.png",
+      "/projects/pak-financials/aboutUs-urdu.png",
+      "/projects/pak-financials/3.png",
+      "/projects/pak-financials/4.png",
+      "/projects/pak-financials/5.png",
+      "/projects/pak-financials/6.png",
+      "/projects/pak-financials/7.png",
+      "/projects/pak-financials/8.png"
+    ],
+    category: "web",
+    featured: true,
+    tech: ["Next.js", "React.js", "next-intl", "Tailwind CSS", "JavaScript"],
+    links: {
+      live: "https://pak-financials.vercel.app",
+      github: "https://github.com/rajafawady/pak-financials"
+    },
+    highlights: [
+      "Implemented multilingual support with next-intl for English and Urdu",
+      "Built dynamic Right-to-Left (RTL) layout support for Urdu content",
+      "Created scalable localization strategy using structured JSON files",
+      "Developed financial literacy tutorials covering essential topics",
+      "Optimized accessibility with responsive design and typography"
+    ],
+    testimonial: {
+      text: "This app makes financial education accessible to everyone in Pakistan, regardless of language preference.",
+      author: "Zainab Khan",
+      position: "Financial Inclusion Advocate"
+    }
+  },
   
 ];

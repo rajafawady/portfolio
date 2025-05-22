@@ -37,11 +37,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
   return (
     <>
-      <Card className="w-full max-w-2xl hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800">
+      <Card className="w-full max-w-2xl hover:shadow-lg transition-shadow duration-300 dark:bg-gray-950/80 dark:border-gray-800 backdrop-blur-sm">
         <CardHeader className="space-y-2">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between relative">
             {project.featured && (
-              <Badge className="absolute -top-1 right-0 bg-yellow-500/90 text-yellow-900 dark:bg-yellow-300 dark:text-yellow-800 backdrop-blur-sm">
+              <Badge className="absolute -top-1 right-0 bg-yellow-500/90 text-yellow-900 dark:bg-yellow-400/90 dark:text-yellow-900 backdrop-blur-sm z-10">
                 <Star className="w-3 h-3 mr-1" />
                 Featured
               </Badge>
@@ -49,13 +49,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <div className="flex-1">
               <h3
                 onClick={() => setIsDialogOpen(true)} // Open dialog when the title is clicked
-                className="text-2xl font-bold pr-24 text-gray-900 dark:text-gray-100 cursor-pointer hover:underline"
+                className="text-2xl font-bold pr-24 text-gray-900 dark:text-green-300 cursor-pointer hover:underline"
               >
                 {project.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mt-2">{project.shortDescription}</p>
+              <p className="text-gray-600 dark:text-gray-300 mt-2">{project.shortDescription}</p>
             </div>
-            <ImageZoom src={project.thumbnail} alt={project.title} className="w-full sm:w-24 h-auto sm:h-24 rounded-lg object-cover mt-4 sm:mt-0 sm:ml-4 flex-shrink-0"></ImageZoom>
+            <div className="w-full sm:w-24 h-48 sm:h-24 mt-4 sm:mt-0 sm:ml-4 flex-shrink-0 relative z-6">
+              <ImageZoom src={project.thumbnail} alt={project.title} className="absolute inset-0 w-full h-full rounded-lg object-cover"></ImageZoom>
+            </div>
           </div>
         </CardHeader>
 
@@ -65,7 +67,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <Badge
                 key={index}
                 variant="secondary"
-                className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                className="bg-blue-100 text-blue-800 dark:bg-blue-900/80 dark:text-blue-100 dark:border border-blue-700"
               >
                 {tech}
               </Badge>
@@ -114,9 +116,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
       {/* Dialog for Project Details */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="bg-white dark:bg-gray-800 rounded-lg max-w-3xl mx-auto p-6 space-y-6" aria-describedby="project-dialog-description">
+        <DialogContent className="bg-white dark:bg-gray-950 dark:border-gray-800 rounded-lg max-w-3xl mx-auto p-6 space-y-6" aria-describedby="project-dialog-description">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-gray-100">{project.title}</DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-green-400">{project.title}</DialogTitle>
           </DialogHeader>
 
           {/* Scrollable Content */}
@@ -126,10 +128,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
             {/* Highlights */}
             <div className="space-y-2">
-              <h4 className="font-semibold text-gray-900 dark:text-gray-100">Key Highlights</h4>
+              <h4 className="font-semibold text-gray-900 dark:text-green-300">Key Highlights</h4>
               <ul className="list-disc pl-5 space-y-1">
                 {project.highlights.map((highlight, index) => (
-                  <li key={index} className="text-gray-600 dark:text-gray-400">
+                  <li key={index} className="text-gray-600 dark:text-gray-300">
                     {highlight}
                   </li>
                 ))}
@@ -138,10 +140,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
             {/* Testimonial */}
             {project.testimonial && (
-              <div className="bg-blue-50 dark:bg-blue-800 p-4 rounded-lg">
+              <div className="bg-blue-50 dark:bg-gray-900/90 dark:border dark:border-gray-800 p-4 rounded-lg">
                 <p className="italic text-gray-700 dark:text-gray-300">&quot;{project.testimonial.text}&quot;</p>
                 <div className="mt-2 text-sm">
-                  <span className="font-semibold text-gray-900 dark:text-gray-100">{project.testimonial.author}</span>
+                  <span className="font-semibold text-gray-900 dark:text-green-300">{project.testimonial.author}</span>
                   <span className="text-gray-500 dark:text-gray-400"> - {project.testimonial.position}</span>
                 </div>
               </div>
