@@ -48,9 +48,8 @@ export const projects = [
   {
     id: 1,
     title: "Kaamsaz Platform",
-    shortDescription: "Visual literacy-focused platform with multilingual support",
-    longDescription: `A comprehensive platform built using the Flutter and Firebase, designed to enhance visual literacy through interactive features. 
-                     It supports multiple languages, dynamic content creation, and user-generated media, allowing for personalized learning experiences.`,
+    shortDescription: "A Multilingual platform which connects customers to local service providers",
+    longDescription: `Kaamsaz is a comprehensive platform designed to empower local service providers, giving them a platform to offer a wide range of work opportunities including home repairs, cleaning, plumbing and more. The platform features a user-friendly interface, allowing customers to easily find and book services, while service providers can manage their profiles and service offerings.`,
     thumbnail: "/projects/kaamsaz/thumbnail.png",
     images: [
     ],
@@ -331,7 +330,7 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Multilingual Financial Literacy App",
+    title: "Pak Financials",
     shortDescription: "Multilingual Web app for providing financial education in English and Urdu",
     longDescription: `A multilingual web application built with Next.js and next-intl aimed at bridging the financial literacy gap in Pakistan.
                      The app delivers accessible and culturally relevant educational content in both English and Urdu languages,
@@ -367,5 +366,37 @@ export const projects = [
       position: "Financial Inclusion Advocate"
     }
   },
+  {
+  id: 11,
+  title: "Flutter Movies App",
+  shortDescription: "Mobile app to browse, search and watch movie trailers",
+  longDescription: `A comprehensive mobile application built with Flutter that allows users to explore movies, browse by genres, 
+                   search for specific titles, view detailed descriptions, and watch trailers. The app implements the BLoC pattern 
+                   for state management and uses Go routing for smooth navigation.`,
+  thumbnail: "/projects/movies-app/thumbnail.jpg",
+  images: [
+    "/projects/movies-app/1.jpg",
+    "/projects/movies-app/2.jpg",
+    "/projects/movies-app/3.jpg"
+  ],
+  category: "mobile",
+  featured: false,
+  tech: ["Flutter", "Dart", "BLoC Pattern", "Go Routing"],
+  links: {
+    github: "https://github.com/rajafawady/flutter_movies_app"
+  },
+  highlights: [
+    "Implemented movie browsing with popular titles and genre filtering",
+    "Built robust search functionality for finding specific movies",
+    "Developed detailed movie information pages with descriptions and trailers",
+    "Applied BLoC pattern for efficient state management across the app",
+    "Integrated with The Movie Database (TMDb) API for comprehensive movie data"
+  ],
+  testimonial: {
+    text: "This app provides an excellent interface for discovering new movies and finding all the information you need.",
+    author: "Zain Hassan",
+    position: "Film Enthusiast"
+  }
+},
   
 ];
