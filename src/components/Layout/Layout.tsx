@@ -38,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
     <SplashScreen isLoading={isLoading} fullText={'initializing_system...'}/>
-    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white' : 'bg-white text-black'}`}>
+    <div className="min-h-screen bg-background dark:bg-gradient-to-br dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 text-foreground transition-colors duration-300">
       {/* Render MatrixRain only on the client side */}
       {isClient && matrixMode && <MatrixRain />}
       <Sidebar />

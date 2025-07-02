@@ -27,6 +27,15 @@ export const Terminal: React.FC<TerminalProps> = ({
   const router= useRouter();
 
 
+  // Get all available commands for tab completion
+  const getAllCommands = () => {
+    const commands: string[] = [];
+    Object.values(terminalCommands).forEach(group => {
+      commands.push(...Object.keys(group));
+    });
+    return commands.sort();
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedHistory = localStorage.getItem('commandHistory');
@@ -65,6 +74,15 @@ export const Terminal: React.FC<TerminalProps> = ({
     return [undefined, undefined];
   };
 
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/fawad_resume.pdf';
+    link.download = 'fawad_resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
 
   const handleSpecialCommands = (command: string) => {
     switch (command) {
@@ -83,6 +101,10 @@ export const Terminal: React.FC<TerminalProps> = ({
       case 'meet':
         openCalendly();
         addEntry('Opening Calendly...');
+        return true;
+      case 'resume':
+        downloadResume();
+        addEntry('Downloading resume...');
         return true;
       case 'theme':
         onThemeToggle?.();
@@ -301,11 +323,11 @@ export const Terminal: React.FC<TerminalProps> = ({
 
   return (
     <div 
-      className={`text-green-400 p-4 overflow-y-auto h-screen ${className}`}
+      className={`text-green-400 p-4 overflow-y-auto h-screen terminal-scroll ${className}`}
       ref={containerRef}
     >
       <div className={`font-mono text-blue-400`}>
-        <span className="whitespace-pre-wrap">$ Welcome to my portfolio! Type &ldquo;help&rdquo; for available commands.</span>
+        <span className="whitespace-pre-wrap">$ Welcome to my portfolio! Type &ldquo;help&rdquo; for available commands or resume to download my CV.</span>
       </div>
       <div className="space-y-2">
         {entries.map(entry => (
@@ -322,6 +344,7 @@ export const Terminal: React.FC<TerminalProps> = ({
         onHistoryNav={handleHistoryNav}
         commandHistory={commandHistory}
         historyIndex={historyIndex}
+        availableCommands={getAllCommands()}
         className="text-green-400"
       />
     </div>

@@ -52,7 +52,7 @@ export default function ProjectsPage() {
                 data-[state=active]:bg-white dark:data-[state=active]:bg-gray-900 
                 data-[state=active]:text-gray-900 dark:data-[state=active]:text-green-400
                 data-[state=active]:border-b-2 dark:data-[state=active]:border-green-500
-                data-[state=active]:shadow-md transition-all duration-200"
+                data-[state=active]:shadow-md transition-all duration-200 w-fit"
             >
               {category === 'all' ? 'All Projects' : category}
             </TabsTrigger>

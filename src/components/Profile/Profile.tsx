@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
-import { CodeXml, Mail, Phone, MapPin, Calendar, Briefcase, GraduationCap } from 'lucide-react';
+import { CodeXml, Mail, Phone, MapPin, Calendar, Briefcase, GraduationCap, File } from 'lucide-react';
 import { useRouter } from 'next/router';
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
@@ -55,7 +55,7 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
     const {  openCalendly } = useCalendly();
   const [selectedTab, setSelectedTab] = useState('about');
   const [isContactVisible, setIsContactVisible] = useState(false);
-  const router= useRouter();
+  const router = useRouter();
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -106,12 +106,13 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
           </div>
 
           <div className="flex-1 text-center md:text-left">
-            <motion.h1 
-              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-300 mb-2"
-              variants={itemVariants}
-            >
+          <div className="w-full mb-2 mt-5">
+            <h2 className="text-4xl font-mono font-extrabold text-gray-900 dark:text-green-500 bg-gray-100 dark:bg-gray-950 border-l-4 border-gray-900 dark:border-green-500 dark:glow-text p-3 rounded-r-md shadow-md backdrop-blur-sm">
+              <span className="text-gray-500 dark:text-green-400 mr-2">$</span>
               {user.name}
-            </motion.h1>
+              <span className="inline-block w-3 h-5 ml-2 bg-gray-900 dark:bg-green-500 animate-pulse"></span>
+            </h2>
+          </div>
             <motion.h2 
               className="text-xl md:text-2xl text-purple-500 dark:text-green-500 mb-4"
               variants={itemVariants}
@@ -137,6 +138,15 @@ const Profile: React.FC<ProfileProps> = ({ user }) => {
                 <Calendar className="mr-2 h-4 w-4" />
                 Schedule Meeting
               </Button>
+
+              <Button variant="outline" className="text-gray-900 dark:text-gray-300 border-purple-500 hover:bg-purple-500">
+                <a href='/fawad_resume.pdf' download={true} rel="noopener noreferrer" className="flex items-center">
+                  <File className="mr-2 h-4 w-4" />
+                  Download Resume
+                </a>
+              </Button>
+
+
             </motion.div>
           </div>
         </motion.div>

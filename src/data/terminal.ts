@@ -6,16 +6,17 @@ export const terminalCommands: CommandGroups = {
     clear: { desc: "Clears the terminal", category: "system" },
     stats: { desc: "View portfolio statistics", category: "system" },
     about: { desc: "Display information about me", category: "navigation" },
-    skills: { desc: "List technical skills", category: "navigation" },
+    // skills: { desc: "List technical skills", category: "navigation" },
     projects: { desc: "View portfolio projects", category: "navigation" },
     contact: { desc: "Show contact information", category: "navigation" },
     
   },
   advanced: {
+    resume: { desc: "Download my resume", category: "navigation" },
     meet: { desc: "Schedule a Meeting", category: "customization" },
     game: { desc: "Launch mini-game", category: "entertainment" },
     theme: { desc: "Toggle dark/light mode", category: "customization" },
-    matrix: { desc: "Toggle matrix effect", category: "entertainment" },
+    // matrix: { desc: "Toggle matrix effect", category: "entertainment" },
     
   },
   fun: {

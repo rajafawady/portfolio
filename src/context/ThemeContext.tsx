@@ -30,10 +30,28 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     savedTheme ? (savedTheme as 'light' | 'dark') : 'light' // Default to light theme if no saved theme
   );
 
+  // Initial effect to apply the saved theme class on mount
   useEffect(() => {
-    // Save the theme in localStorage
+    if (typeof window !== 'undefined' && savedTheme) {
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, []); // Only run on mount
+
+  useEffect(() => {
+    // Save the theme in localStorage and apply the dark class to document
     if (typeof window !== 'undefined') {
       localStorage.setItem('theme', theme);
+      
+      // Apply or remove the 'dark' class from the document element
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
   }, [theme]);
 

@@ -1,6 +1,6 @@
 export const userData = {
   name: "Raja Fawad",
-  title: "Full Stack & Mobile Developer",
+  title: "Web & Mobile App Developer",
   about: {
     summary: `Passionate full-stack developer with 2+ years of experience building scalable web and mobile applications.
              Specialized in React, Next.js, Laravel, and Flutter development.`,
@@ -35,7 +35,7 @@ export const userData = {
     {
       degree: "Bachelor of Software Engineering",
       institution: "SEECS, NUST",
-      year: "2021-Present",
+      year: "2021-2025",
       achievements: []
     },
     {
@@ -53,25 +53,25 @@ export const userData = {
   ],
   skills: {
     frontend: [
-      { name: "React", level: 90, years: 4, icon: "🔵", proficiency: 90 },
-      { name: "Next.js", level: 85, years: 3, icon: "⚛️", proficiency: 85 },
-      { name: "Flutter", level: 80, years: 2, icon: "🦋", proficiency: 80 },
-      { name: "React Native", level: 75, years: 2, icon: "📱", proficiency: 75 }
+      { name: "React", level: 90, years: 2, icon: "", proficiency: 90 },
+      { name: "Next.js", level: 85, years: 2, icon: "", proficiency: 85 },
+      { name: "Flutter", level: 80, years: 2, icon: "", proficiency: 80 },
+      { name: "React Native", level: 50, years: 2, icon: "", proficiency: 75 }
     ],
     backend: [
-      { name: "Node.js", level: 85, years: 4, icon: "🌲", proficiency: 85 },
-      { name: "Laravel", level: 90, years: 5, icon: "🛠️", proficiency: 90 },
-      { name: "Python", level: 75, years: 3, icon: "🐍", proficiency: 75 }
+      { name: "Node.js", level: 85, years: 2, icon: "", proficiency: 85 },
+      { name: "Laravel", level: 90, years: 3, icon: "", proficiency: 90 },
+      { name: "Python", level: 75, years: 3, icon: "", proficiency: 80 }
     ],
     database: [
-      { name: "MongoDB", level: 85, years: 4, icon: "🍃", proficiency: 85 },
-      { name: "MySQL", level: 90, years: 5, icon: "🐬", proficiency: 90 },
-      { name: "PostgreSQL", level: 80, years: 3, icon: "🐘", proficiency: 80 }
+      { name: "MongoDB", level: 90, years: 2, icon: "", proficiency: 90 },
+      { name: "MySQL", level: 90, years: 3, icon: "", proficiency: 90 },
+      { name: "PostgreSQL", level: 80, years: 3, icon: "", proficiency: 70 }
     ],
     devops: [
-      { name: "Docker", level: 80, years: 3, icon: "🐳", proficiency: 80 },
-      { name: "AWS", level: 75, years: 2, icon: "☁️", proficiency: 75 },
-      { name: "CI/CD", level: 85, years: 4, icon: "🔄", proficiency: 85 }
+      { name: "Docker", level: 50, years: 1, icon: "", proficiency: 80 },
+      // { name: "AWS", level: 75, years: 2, icon: "", proficiency: 75 },
+      { name: "CI/CD", level: 85, years: 4, icon: "", proficiency: 85 }
     ]
   },
   contact: {

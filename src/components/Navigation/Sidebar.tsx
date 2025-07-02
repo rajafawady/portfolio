@@ -15,7 +15,7 @@ export const Sidebar: React.FC = () => {
   const sections = [
     { id: 'terminal', icon: <Terminal size={24} />, label: 'Terminal', path: '/' },
     { id: 'profile', icon: <User size={24} />, label: 'About Me', path: '/profile' },
-    { id: 'skills', icon: <Code2 size={24} />, label: 'Skills', path: '/skills' },
+    // { id: 'skills', icon: <Code2 size={24} />, label: 'Skills', path: '/skills' },
     { id: 'projects', icon: <Briefcase size={24} />, label: 'Projects', path: '/projects' },
     { id: 'contact', icon: <Mail size={24} />, label: 'Contact', path: '/contact' }
   ];

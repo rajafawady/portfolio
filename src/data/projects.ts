@@ -53,7 +53,7 @@ export const projects = [
     thumbnail: "/projects/kaamsaz/thumbnail.png",
     images: [
     ],
-    category: "web",
+    category: "mobile",
     featured: true,
     tech: ["Flutter", "Firebase"],
     links: {
@@ -73,7 +73,7 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Pointrush Recreation App",
+    title: "Pointrush",
     shortDescription: "Recreation and exploration app with dynamic map features",
     longDescription: `A full-featured recreation platform built with the MERN stack and Next.js, designed for users to explore tracks, waypoints, and locations. 
                      The app supports real-time tracking, user-generated content, and a gamified experience for participants.`,
@@ -135,6 +135,66 @@ export const projects = [
       position: "Restaurant Owner"
     }
   },
+
+  {
+  id: 4,
+  title: "Elevatr Career Success Tracker",
+  shortDescription: "A Next.js PWA for tracking career growth, habits, and progress, intelligent, offline-first and native-like.",
+  longDescription: `Elevatr is a comprehensive career success tracker built for modern professionals and learners. Designed as a Progressive Web App (PWA) with a native-like experience, Elevatr empowers users to manage 15/30-day sprints, daily tasks, journaling, and analytics—online or fully offline. Users can start instantly in local mode (no signup), and seamlessly migrate all data to the cloud when they register. The app features real-time sync, optimistic UI, intelligent caching, predictive preloading, and a beautiful, accessible UI/UX. Built with Next.js 15, TypeScript, Zustand, and Firebase, Elevatr demonstrates advanced web engineering and user-centric design.`,
+  thumbnail: "/projects/elevatr/icon-transparent.png",
+  images: [
+    "/projects/elevatr/1.png",
+    "/projects/elevatr/2.png",
+    "/projects/elevatr/3.png",
+    "/projects/elevatr/4.png",
+    "/projects/elevatr/5.png",
+    "/projects/elevatr/6.png",
+    "/projects/elevatr/7.png",
+    "/projects/elevatr/8.png",
+    "/projects/elevatr/9.png",
+    "/projects/elevatr/10.png",
+    "/projects/elevatr/11.png",
+    "/projects/elevatr/12.png",
+    "/projects/elevatr/13.png",
+    "/projects/elevatr/14.png"
+  ],
+  category: "web",
+  featured: true,
+  tech: [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Firebase",
+    "Zustand",
+    "PWA",
+    "IndexedDB",
+    "Service Workers"
+  ],
+  links: {
+    live: "https://elevatr-zeta.vercel.app",
+    github: "https://github.com/rajafawady/elevatr"
+  },
+  highlights: [
+    "PWA with install prompts, app shortcuts, and offline-first experience",
+    "Start instantly in local mode—no signup required; seamless cloud migration",
+    "Optimistic UI: instant feedback, background sync, rollback, and retry logic",
+    "Dual-layer caching (memory + localStorage) and predictive route preloading",
+    "15/30-day sprint management, daily tasks, and journal with auto-save",
+    "Real-time analytics: streaks, completion rates, and visual charts",
+    "Smart notifications, reminders, and milestone alerts",
+    "Modern UI/UX: glassmorphism, gradients, smooth animations, and accessibility",
+    "Persistent navigation state and fast state restoration across sessions",
+    "Robust error handling, type safety, and modular state management (Zustand)",
+    "Fully offline operation with IndexedDB and service workers; auto-sync on login"
+  ],
+  testimonial: {
+    text: "Elevatr delivers a seamless, native-like experience for tracking career growth—online or offline. The intelligent features and beautiful UI make habit-building and progress tracking effortless.",
+    author: "Raja Fawad",
+    position: "Software Engineer & Creator"
+  }
+},
+
+
   {
     id: 10,
     title: "TEDxNUST'23 Website",
@@ -329,7 +389,7 @@ export const projects = [
     }
   },
   {
-    id: 4,
+    id: 12,
     title: "Pak Financials",
     shortDescription: "Multilingual Web app for providing financial education in English and Urdu",
     longDescription: `A multilingual web application built with Next.js and next-intl aimed at bridging the financial literacy gap in Pakistan.
@@ -398,5 +458,7 @@ export const projects = [
     position: "Film Enthusiast"
   }
 },
+
+
   
 ];
