@@ -13,7 +13,7 @@ export const userData = {
     interests: [
       "Mobile App Development",
       "Web Development",
-      "Agentic AI"
+      "Agentic AI",
       "Open Source Contributions"
     ]
   },
