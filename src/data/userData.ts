@@ -5,24 +5,30 @@ export const userData = {
     summary: `Passionate full-stack developer with 2+ years of experience building scalable web and mobile applications.
              Specialized in React, Next.js, Laravel, and Flutter development.`,
     details: [
-      "2+ years of professional development experience",
+      "3+ years of professional development experience",
       "Successfully delivered 20+ production applications",
       "Led development teams of 3-5 developers",
-      "Strong focus on clean, optimized code and best practices"
+      "Strong focus on clean, optimized and best coding practices"
     ],
     interests: [
-      "Open Source Development",
       "Mobile App Development",
-      "Cloud Architecture",
-      "UI/UX Design"
+      "Web Development",
+      "Agentic AI"
+      "Open Source Contributions"
     ]
   },
   experience: [
+      {
+      company: "Aeyron",
+      position: "Fullstack Developer",
+      period: "July 2025 - Present",
+      highlights: "Collaborating with designers and backend teams to ensure seamless user experiences. Building and maintaining modern fullstack applications using the MERN stack, Next.js, Firebase, Supabase, taking complete ownership of projects from development to deployment and on-going maintenance. Ensuring the best coding practices like clean code, documentation, scalabale architecture etc."
+    },
     {
-      company: "Freelance Web Developer",
+      company: "Freelance App & Web Developer",
       position: "Self-employed",
       period: "Dec. 2022 - Present",
-      highlights: "Developed web applications for clients using MERN stack, Laravel, and Next.js, specializing in creating efficient, user-friendly interfaces and backend systems. Handled deployment and testing processes for live web applications, ensuring seamless functionality and client satisfaction."
+      highlights: "Developed web and mobile applications for clients using Flutter, Next.js, MERN, and Laravel, specializing in creating efficient, user-friendly interfaces and performance optimised backend systems. Handled deployment and testing processes for live applications, ensuring seamless functionality and client satisfaction."
     },
     {
       company: "Code Knitters NSTP",
@@ -54,12 +60,14 @@ export const userData = {
   skills: {
     frontend: [
       { name: "React", level: 90, years: 2, icon: "", proficiency: 90 },
-      { name: "Next.js", level: 85, years: 2, icon: "", proficiency: 85 },
+      { name: "Next.js", level: 85, years: 2, icon: "", proficiency: 90 },
       { name: "Flutter", level: 80, years: 2, icon: "", proficiency: 80 },
       { name: "React Native", level: 50, years: 2, icon: "", proficiency: 75 }
     ],
     backend: [
-      { name: "Node.js", level: 85, years: 2, icon: "", proficiency: 85 },
+      { name: "Firebase", level: 95, years: 2, icon: "", proficiency: 95 },
+      { name: "Supabase", level: 95, years: 3, icon: "", proficiency: 95 },
+      { name: "Node.js", level: 85, years: 3, icon: "", proficiency: 85 },
       { name: "Laravel", level: 90, years: 3, icon: "", proficiency: 90 },
       { name: "Python", level: 75, years: 3, icon: "", proficiency: 80 }
     ],
@@ -77,7 +85,7 @@ export const userData = {
   contact: {
     email: "rajafawady@gmail.com",
     phone: "+92 322 8872242",
-    location: "Beruni Hostel, Nust University, Sector H12, Islamabad, PK",
+    location: "Ahmed Heights, Zubair Shah Road, Sector H13, Islamabad, PK",
     social: {
       github: "https://github.com/rajafawady",
       linkedin: "https://www.linkedin.com/in/raja-fawad-377357237",
